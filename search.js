@@ -19,7 +19,7 @@ function binarySearch(array,target){
     while(true){
         loop +=1
         if(target > array[array.length - 1] ||mid < 0){
-            log("Aradığınız Değer Bulunamadı")
+            log("The Value You are Looking For Was Not Found")
             break
         }
         
@@ -32,7 +32,7 @@ function binarySearch(array,target){
             mid = parseInt(mid + ((max - mid) / 2))
         }
         else {
-            log("Aranan Değer:"+target +"\nBulunan Değer:"+mid+"\nDöngü Tekrarı:"+loop+"\n")
+            log("Target Value:"+target +"\nValue Found:"+mid+"\nLoop Repeat:"+loop+"\n")
             loop = 0
             break
         }
