@@ -3,38 +3,35 @@ const log = console.log
 function main(){
     const array = []
     //Create Array
-    for(let i = 0;i<1000000;i+=6){
+    for(let i = 0;i<1000000;i+=5){
         array.push(i)
     }
     //Test Binary Search
-    for(let i = 0;i<1000;i++){
+     for(let i = 0;i<1000;i++){
         binarySearch(array,i)
-    }
+    } 
 }
 
 function binarySearch(array,target){
     let min = 0
-    let mid = Math.round(array[array.length - 1] / 2)
-    let max = Math.round(array[array.length - 1])
-    while(true){
+    let mid = parseInt((array.length - 1) / 2)
+    let max = parseInt((array.length - 1))
+    while(min <= max){
         loop +=1
-        if(target > array[array.length - 1] ||mid < 0){
-            log("The Value You are Looking For Was Not Found")
-            break
-        }
+        mid = parseInt((min + max) / 2)
+        let midNumber = array[mid]
         
-        if(mid > target){
-            max = parseInt(mid)
-            mid = parseInt(mid  - (mid / 2))
-        }
-        else if(mid < target){
-            min = parseInt(mid)
-            mid = parseInt(mid + ((max - mid) / 2))
-        }
-        else {
-            log("Target Value:"+target +"\nValue Found:"+mid+"\nLoop Repeat:"+loop+"\n")
+        if(midNumber == target){
+            log("Target Value:"+target +"\nValue Found:"+midNumber+"\nLoop Repeat:"+loop+"\n")
             loop = 0
             break
+        }
+        if(midNumber > target){
+            max = parseInt(mid - 1)
+        }
+        else{
+            min = parseInt(mid + 1)
+            
         }
     }
     
